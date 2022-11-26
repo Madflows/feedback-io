@@ -15,6 +15,7 @@ import {
   useToast,
   useDisclosure,
 } from "@chakra-ui/react";
+import { IoSettingsOutline } from "react-icons/io5";
 
 import { updateSite } from "lib/db";
 
@@ -46,7 +47,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
         backgroundColor="gray.900"
         color="white"
         fontWeight="medium"
-        leftIcon="settings"
+        leftIcon={<IoSettingsOutline />}
         _hover={{ bg: "gray.700" }}
         _active={{
           bg: "gray.800",
@@ -77,7 +78,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
               <Switch
                 key={settings?.icons}
                 name="icons"
-                {...register('icons')}
+                {...register("icons")}
                 color="green"
                 defaultIsChecked={settings?.icons}
               />
@@ -89,7 +90,7 @@ const EditSiteModal = ({ settings, siteId, children }) => {
               <Switch
                 key={settings?.ratings}
                 name="ratings"
-                {...register('ratings')}
+                {...register("ratings")}
                 color="green"
                 defaultIsChecked={settings?.ratings}
               />

@@ -26,6 +26,7 @@ const FeedbackPage = () => {
   const { data: feedbackData } = useSWR(feedbackApi, fetcher);
 
   const site = siteData?.site;
+  console.log(site)
   const allFeedback = feedbackData?.feedback;
 
   const onSubmit = (e) => {
