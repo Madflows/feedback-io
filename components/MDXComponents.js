@@ -1,11 +1,9 @@
 import {
   Box,
-  Callout,
   Code,
   Heading,
   Kbd,
   Link,
-  PseudoBox,
   Text,
   Divider,
   useColorMode,
@@ -79,7 +77,7 @@ const Quote = (props) => {
   };
 
   return (
-    <Callout
+    <Box
       mt={4}
       w="98%"
       bg={bgColor[colorMode]}
@@ -120,7 +118,7 @@ const DocsHeading = (props) => (
     <Box pointerEvents="auto">
       {props.children}
       {props.id && (
-        <PseudoBox
+        <Box
           aria-label="anchor"
           as="a"
           color="blue.500"
@@ -135,7 +133,7 @@ const DocsHeading = (props) => (
           href={`#${props.id}`}
         >
           #
-        </PseudoBox>
+        </Box>
       )}
     </Box>
   </Heading>
