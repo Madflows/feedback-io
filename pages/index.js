@@ -1,21 +1,18 @@
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Box, Image } from "@chakra-ui/react";
+import DashboardShell from "components/DashboardShell";
+import HeroSection from "components/Hero";
+import { StatGrid } from "components/StatGrid";
 import { useAuth } from "lib/auth";
 
 function HomePage() {
   const auth = useAuth();
 
-  return auth.user ? (
-    <div>
-      <p>Email: {auth.user.email}</p>
-      <Button onClick={(e) => auth.signout()}>Sign Out</Button>
-    </div>
-  ) : (
-    <Flex maxW={"360px"} gap={"1rem"}>
-    <Button onClick={(e) => auth.signinWithGitHub()}>Sign In with Github</Button>
-    <Button onClick={(e) => auth.signinWithGoogle()}>Sign In with Google</Button>
-
-    </Flex>
+  return (
+    <Box>
+      <HeroSection />
+      <StatGrid />
+    </Box>
   );
 }
 
-export default HomePage
+export default HomePage;

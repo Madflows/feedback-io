@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Heading, Text, Divider } from "@chakra-ui/react";
 import { format, parseISO } from "date-fns";
+import DeleteFeedbackButton from "./DeleteFeedbackButton";
 
 const Feedback = ({ author, text, createdAt }) => (
   <Box borderRadius={4} maxWidth="700px" w="full">
@@ -12,6 +13,7 @@ const Feedback = ({ author, text, createdAt }) => (
     </Text>
     <Text color="gray.800">{text}</Text>
     <Divider borderColor="gray.200" backgroundColor="gray.200" mt={8} mb={8} />
+    {/* <DeleteFeedbackButton feedbackId={id} /> */}
   </Box>
 );
 

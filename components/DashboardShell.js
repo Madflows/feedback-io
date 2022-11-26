@@ -1,6 +1,7 @@
 import React from "react";
 import NextLink from "next/link";
-import { Box, Button, Flex, Link, Avatar, Icon, Image } from "@chakra-ui/react";
+import { Box, Button, IconButton, Flex, Link, Avatar, Icon, Image } from "@chakra-ui/react";
+import { VscSignIn } from "react-icons/vsc";
 
 import { useAuth } from "lib/auth";
 
@@ -27,29 +28,36 @@ const DashboardShell = ({ children }) => {
           h="60px"
         >
           <Flex align="center">
-              <Link href="/">
-                <Box
-                  as="img"
-                  mr="4"
-                  src="/assets/logo.svg"
-                  width={"50"}
-                  height={"50"}
-                />
-              </Link>
-              <Link href="/sites" mr={4}>
-                Sites
-              </Link>
-              <Link href="/feedback">Feedback</Link>
+            <Link href="/">
+              <Box
+                as="img"
+                mr="4"
+                src="/assets/logo.svg"
+                width={"50"}
+                height={"50"}
+              />
+            </Link>
+            <Link href="/sites" mr={4}>
+              Sites
+            </Link>
+            <Link href="/feedback">Feedback</Link>
           </Flex>
           <Flex justifyContent="center" alignItems="center">
-            {user && (
-              <NextLink href="/account">
-                <Button variant="ghost" mr={2}>
-                  Account
-                </Button>
-              </NextLink>
+            {user ? (
+              <>
+                <NextLink href="/account">
+                  <Avatar size="sm" src={user?.photoUrl} />
+                </NextLink>
+              </>
+            ) : (
+              <IconButton
+                icon={<VscSignIn />}
+                as={NextLink}
+                href="/"
+                variant="ghost"
+                ml={2}
+              />
             )}
-            <Avatar size="sm" src={user?.photoUrl} />
           </Flex>
         </Flex>
       </Flex>
