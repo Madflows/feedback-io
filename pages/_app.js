@@ -6,6 +6,7 @@ import SEO from "../next-seo.config";
 import { DefaultSeo } from "next-seo";
 import { MDXProvider } from "@mdx-js/react";
 import MDXComponents from "components/MDXComponents";
+import { Analytics } from "@vercel/analytics/react";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps }) {
           <MDXProvider components={MDXComponents}>
             <DefaultSeo {...SEO} />
             <CSSReset />
+            <Analytics />
             <Component {...pageProps} />
           </MDXProvider>
         </AuthProvider>

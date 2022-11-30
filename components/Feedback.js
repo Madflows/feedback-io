@@ -11,7 +11,9 @@ const Feedback = ({ author, text, createdAt }) => (
     <Text color="gray.500" mb={4} fontSize="xs">
       {format(parseISO(createdAt), "PPpp")}
     </Text>
-    <Text color="gray.800">{text}</Text>
+    <Text color="gray.800" _dark={{
+      color: "gray.200"
+    }}>{text}</Text>
     <Divider borderColor="gray.200" backgroundColor="gray.200" mt={8} mb={8} />
     {/* <DeleteFeedbackButton feedbackId={id} /> */}
   </Box>
